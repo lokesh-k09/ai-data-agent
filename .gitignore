@@ -1,0 +1,46 @@
+# --- Security & Credentials ---
+.env
+check.py
+secrets.toml
+*.pem
+
+# --- Virtual Environments ---
+venv/
+.venv/
+env/
+# For Windows/Mac/Linux common patterns
+Scripts/
+bin/
+lib/
+include/
+pyvenv.cfg
+
+# --- Python Artifacts ---
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.pytest_cache/
+.ipynb_checkpoints/
+dist/
+build/
+*.egg-info/
+
+# --- Project Specifics (Agentic Outputs) ---
+# Ignore the generated temp execution scripts
+temp_run_*.py
+temp_script.py
+
+# Ignore the output plots to keep the GitHub history clean
+output_plot.png
+img_*.png
+plot_*.png
+
+# --- OS Specific ---
+.DS_Store
+Thumbs.db
+.directory
+
+# --- Data Control ---
+# If you want to keep the repo strictly for code, uncomment the line below:
+# *.csv
