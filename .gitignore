@@ -3,6 +3,7 @@
 check.py
 secrets.toml
 *.pem
+*.csv
 
 # --- Virtual Environments ---
 venv/
