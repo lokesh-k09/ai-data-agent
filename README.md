@@ -14,10 +14,19 @@ An autonomous AI-powered web application designed to bridge the gap between natu
 * **Statistical Comparison (Scenario C)**: Advanced comparison logic for multiple entities, including t-tests and rolling correlation analysis.
 
 ## 🛠️ System Architecture
+
+*(Note: Ensure you upload your architecture diagram image to the repository and link it here)*
+![Architecture Diagram](./architecture_diagram.png)
+
 * **Frontend**: Developed using **Streamlit**, providing a conversational chat interface and dynamic file management.
 * **Orchestration Layer**: A robust Python backend utilizing the **Google GenAI SDK** to manage conversation state and iterative agentic loops.
 * **LLM Integration**: Powered by **Google Gemini 2.5 Flash** for high-speed reasoning, 404-error resolution, and accurate code generation.
 * **Execution Sandbox**: Uses a subprocess-based approach to execute generated code, capturing `stdout` and `stderr` to feed back into the agent for self-correction.
+
+## 🚧 Known Limitations
+* **Static Visualizations**: The system currently generates static Matplotlib/Seaborn images. Interactive charts (like Plotly) are not yet supported in the UI rendering pipeline.
+* **Data Scale**: The application is optimized for small to medium-sized CSV files. Extremely large datasets may hit Streamlit's memory limits or the agent's 45-second hardware execution timeout.
+* **Database Access**: The agent currently only reads from uploaded flat files or external APIs (like yfinance); it does not currently support direct connections to SQL/cloud data warehouses.
 
 ## 📦 Setup & Installation
 1.  **Clone the Repository**:
@@ -42,6 +51,16 @@ An autonomous AI-powered web application designed to bridge the gap between natu
 * **Financial**: "Compare the daily closing prices of NVDA and TSLA for the last 6 months. Create a dual-axis plot showing raw prices and 20-day rolling correlation."
 * **Data Analysis**: "Analyze the uploaded Air_Quality.csv. Identify the top 5 neighborhoods with the highest average Nitrogen Dioxide (NO2) levels and show a bar chart."
 * **Agentic Fix**: "Calculate the average of the 'AirQualityIndex' column." (The agent will realize the column name is wrong and fix it to 'Data Value' automatically).
+
+## 🤖 AI Tool Usage Documentation
+In accordance with course guidelines, the development of this project was assisted by Generative AI tools. Below is the documentation of our AI usage:
+
+* **Tools Used**: Google Gemini.
+* **How They Were Used**: 
+  * **Debugging**: Used to troubleshoot and resolve complex environment issues, specifically resolving `ModuleNotFoundError` during cloud deployment by suggesting the `sys.executable` approach for the subprocess sandbox. Also used to map out the steps for recovering from a Git credential leak (Git history purge).
+  * **Code Refactoring & Generation**: Assisted in refining the Regular Expressions (Regex) used in the Orchestration layer to reliably extract Python code blocks from the LLM's raw text responses.
+  * **Documentation**: Assisted in structuring and formatting this `README.md` file and drafting sections of the final PDF report to ensure clear technical communication.
+* **Parts Assisted**: The core logic, prompt engineering, and UI architecture were designed by the team. AI was heavily leveraged for debugging the `subprocess` integration, refining the regex parser, and formatting documentation. All final code and configurations were reviewed, modified, and approved by the team.
 
 ## ⚠️ Safety & Reliability
 * **Resource Guard**: All code executions are capped at 45 seconds via hardware timeout to prevent infinite loops.
