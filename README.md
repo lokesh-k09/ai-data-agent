@@ -15,7 +15,7 @@ An autonomous AI-powered web application designed to bridge the gap between natu
 
 ## 🛠️ System Architecture
 
-*(Note: Ensure you upload your architecture diagram image to the repository and link it here)*
+
 ![Architecture Diagram](./architecture_diagram.png)
 
 * **Frontend**: Developed using **Streamlit**, providing a conversational chat interface and dynamic file management.
